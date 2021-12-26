@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BitkilerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BitkilerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Familyalar" EntityType="BitkilerModel.Familyalar" />
+    <EntitySet Name="Kullanicilar" EntityType="BitkilerModel.Kullanicilar" />
+    <EntitySet Name="TurDetay" EntityType="BitkilerModel.TurDetay" />
+    <AssociationSet Name="FK_TurDetay_Familyalar1" Association="BitkilerModel.FK_TurDetay_Familyalar1">
+      <End Role="Familyalar" EntitySet="Familyalar" />
+      <End Role="TurDetay" EntitySet="TurDetay" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Familyalar">
+    <Key>
+      <PropertyRef Name="familyaId" />
+    </Key>
+    <Property Name="familyaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyaAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="familyaKod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TurDetay" Relationship="BitkilerModel.FK_TurDetay_Familyalar1" FromRole="Familyalar" ToRole="TurDetay" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="kullaniciId" />
+    </Key>
+    <Property Name="kullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adSoyad" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telNo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="yetki" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TurDetay">
+    <Key>
+      <PropertyRef Name="turDetayId" />
+    </Key>
+    <Property Name="turDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyaId" Type="Int32" />
+    <Property Name="turAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="turDetay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dikimYeri" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="toprak" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="buyumeHizi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="resim" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Familyalar" Relationship="BitkilerModel.FK_TurDetay_Familyalar1" FromRole="TurDetay" ToRole="Familyalar" />
+  </EntityType>
+  <Association Name="FK_TurDetay_Familyalar1">
+    <End Type="BitkilerModel.Familyalar" Role="Familyalar" Multiplicity="0..1" />
+    <End Type="BitkilerModel.TurDetay" Role="TurDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Familyalar">
+        <PropertyRef Name="familyaId" />
+      </Principal>
+      <Dependent Role="TurDetay">
+        <PropertyRef Name="familyaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

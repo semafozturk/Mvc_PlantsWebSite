@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BitkilerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Familyalar">
+    <Key>
+      <PropertyRef Name="familyaId" />
+    </Key>
+    <Property Name="familyaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyaAdi" Type="nvarchar" MaxLength="60" />
+    <Property Name="familyaKod" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="kullaniciId" />
+    </Key>
+    <Property Name="kullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+    <Property Name="yetki" Type="int" />
+  </EntityType>
+  <EntityType Name="TurDetay">
+    <Key>
+      <PropertyRef Name="turDetayId" />
+    </Key>
+    <Property Name="turDetayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyaId" Type="int" />
+    <Property Name="turAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="turDetay" Type="nvarchar(max)" />
+    <Property Name="dikimYeri" Type="nvarchar" MaxLength="80" />
+    <Property Name="toprak" Type="nvarchar" MaxLength="80" />
+    <Property Name="buyumeHizi" Type="nvarchar" MaxLength="50" />
+    <Property Name="resim" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_TurDetay_Familyalar1">
+    <End Role="Familyalar" Type="Self.Familyalar" Multiplicity="0..1" />
+    <End Role="TurDetay" Type="Self.TurDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Familyalar">
+        <PropertyRef Name="familyaId" />
+      </Principal>
+      <Dependent Role="TurDetay">
+        <PropertyRef Name="familyaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BitkilerModelStoreContainer">
+    <EntitySet Name="Familyalar" EntityType="Self.Familyalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TurDetay" EntityType="Self.TurDetay" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TurDetay_Familyalar1" Association="Self.FK_TurDetay_Familyalar1">
+      <End Role="Familyalar" EntitySet="Familyalar" />
+      <End Role="TurDetay" EntitySet="TurDetay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+   <!-- <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+
+    <link rel="stylesheet" href="~/assets/css/main.css" /><!--template'in css i-->
+
+    <!--<script src="~/Scripts/modernizr-2.6.2.js"></script>-->
+
+
+</head>
+<body class="landing">
+ 
+    <header id="header" class="alt">
+        <h1><strong><a href="index.html"><img src="~/images/logoo.png" width="33" height="33"/></a></strong><span style="line-height:30px;font-size:1.8em !important;">PLANT<b style="color:white;">S</b></span><span style="line-height:30px;color:#6dcf9b;font-size:1.6em !important;">EMA</span></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="~/Home/Index">ANASAYFA</a></li>
+                <li><a href="~/Home/Kesfet"> | KEŞFET |</a></li>
+                <li><a href="~/Home/Iletisim">İLETİŞİM</a></li>
+                <li><a href="~/Admin/Giris" class="button small">ADMİN GİRİŞ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+    <section id="banner" style="background:url(../../images/pis.jpg);background-size:cover;">
+        <h2>BİTKİLERİ KEŞFE ÇIKALIM</h2>
+        <p style="text-transform: initial;">Satın alınıp alınıp nasıl bakılması gerektiğini bilmeden,
+         bitkinin özelliklerini ve hassasiyetlerini <br />anlamadan bitkileri evlerimizde
+         yanlış ortamlarda ve suya boğarak büyütmüş olmamız ve kurutup<br /> çöpe atışlarımıza
+         gönlümüzün razı olmayışı. Bu site bu yüzden, bilgilendirme amaçlı kurulmuştur.</p>
+        <ul class="actions">
+            <li><a href="#" class="button special">HOŞGELDİNİZ, BUYRUN</a></li>
+        </ul>
+    </section>
+
+   <div class="container">
+       @RenderBody()
+   </div>
+
+    <footer id="footer">
+        <div class="container">
+            <ul class="icons">
+                <li><a href="#" class="icon fa-facebook"></a></li>
+                <li><a href="#" class="icon fa-twitter"></a></li>
+                <li><a href="#" class="icon fa-instagram"></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled</li>
+                <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+                <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- templatenin scriptlerii -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/skel.min.js"></script>
+    <script src="~/assets/js/util.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    
+     <!--  <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              @*  @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+      @*  @RenderBody()*@
+        <hr />
+        <footer>
+            <p>&copy; @*@DateTime.Now.Year*@ - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>-->
+</body>
+</html>

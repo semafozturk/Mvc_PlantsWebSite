@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebProgOdev.Models.TurDetay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.turAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.turDetay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dikimYeri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.toprak)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.buyumeHizi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familyalar.familyaAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.turAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turDetay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dikimYeri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.toprak)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.buyumeHizi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Familyalar.familyaAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.turDetayId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.turDetayId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.turDetayId })
+        </td>
+    </tr>
+}
+
+</table>

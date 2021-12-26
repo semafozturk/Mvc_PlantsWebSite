@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebProgOdev.Models.TurDetay>
+
+@{
+    ViewBag.Title = "KesifDetay";
+}
+
+<h2>KesifDetay</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.turAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.turDetay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dikimYeri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.toprak)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.buyumeHizi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familyalar.familyaAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="~/Home/ResimGoster?resimID=@item.turDetayId"><img src="~/images/img/@item.resim" width="100" /></a>
+</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turDetay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dikimYeri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.toprak)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.buyumeHizi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Familyalar.familyaAdi)
+        </td>
+    </tr>
+}
+
+</table>

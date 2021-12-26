@@ -1,0 +1,82 @@
+﻿@model WebProgOdev.Models.TurDetay
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Bu Tür Detay kaydını Silmek İstediğine Emin misin?</h3>
+<div>
+    <h4>Tür Detay Sil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.turAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.turDetay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turDetay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dikimYeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dikimYeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.toprak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toprak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.buyumeHizi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.buyumeHizi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familyalar.familyaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familyalar.familyaAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "KullaniciListe")
+
+
+        </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BitkilerModelStoreContainer" CdmEntityContainer="BitkilerEntities">
+    <EntitySetMapping Name="Familyalar">
+      <EntityTypeMapping TypeName="BitkilerModel.Familyalar">
+        <MappingFragment StoreEntitySet="Familyalar">
+          <ScalarProperty Name="familyaKod" ColumnName="familyaKod" />
+          <ScalarProperty Name="familyaAdi" ColumnName="familyaAdi" />
+          <ScalarProperty Name="familyaId" ColumnName="familyaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="BitkilerModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="yetki" ColumnName="yetki" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+          <ScalarProperty Name="kullaniciId" ColumnName="kullaniciId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TurDetay">
+      <EntityTypeMapping TypeName="BitkilerModel.TurDetay">
+        <MappingFragment StoreEntitySet="TurDetay">
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="buyumeHizi" ColumnName="buyumeHizi" />
+          <ScalarProperty Name="toprak" ColumnName="toprak" />
+          <ScalarProperty Name="dikimYeri" ColumnName="dikimYeri" />
+          <ScalarProperty Name="turDetay" ColumnName="turDetay" />
+          <ScalarProperty Name="turAdi" ColumnName="turAdi" />
+          <ScalarProperty Name="familyaId" ColumnName="familyaId" />
+          <ScalarProperty Name="turDetayId" ColumnName="turDetayId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

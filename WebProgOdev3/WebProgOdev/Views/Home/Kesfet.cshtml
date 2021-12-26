@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebProgOdev.Models.Familyalar>
+
+@{
+    ViewBag.Title = "Kesfet";
+}
+<br />
+<h2>Kesfet</h2>
+
+            <table style="width:350px;float:left;">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="/Home/KesifDetay?kesifKodu=@item.familyaKod"  style="text-decoration:none;color:black;">@item.familyaAdi</a> 
+                             </td>
+                            <td>
+                                <span style="display:inline-block !important;
+                                padding:.25em .4em !important;
+                                font-size:75% !important;
+                                font-weight:700 !important;
+                                line-height:1 !important;
+                                text-align:center !important;
+                                white-space:nowrap !important;
+                                border-radius:.30rem !important;
+                                transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                color:#fff !important;background-color:#469446;
+                                padding-right:.6em !important;padding-left:.6em !important;padding-bottom:3em;border-radius:10rem;
+                                font-family:'Segoe UI';">@item.TurDetay.Count()</span>
+                        </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+<div style="float:left;margin-left:25%;">
+    <img src="~/images/kalpliAgacc.png" width="400" /></div>
+<div style="clear:both;"></div>
+
+<br /><br />

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebProgOdev.Models.Familyalar>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h4>Familya Listele</h4>
+<p>
+    @Html.ActionLink("Familye Ekle", "FamilyaEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.familyaAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.familyaKod)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.familyaAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.familyaKod)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "FamilyaDuzenle", new { id = item.familyaId }) |
+                @Html.ActionLink("Sil", "FamilyaSil", new { id = item.familyaId })
+            </td>
+        </tr>
+    }
+
+</table>

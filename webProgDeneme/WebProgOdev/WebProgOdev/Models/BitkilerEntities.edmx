@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BitkilerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Familyalar">
+          <Key>
+            <PropertyRef Name="familyaId" />
+          </Key>
+          <Property Name="familyaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="familyaAdi" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="kullaniciId" />
+          </Key>
+          <Property Name="kullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="yetki" Type="int" />
+        </EntityType>
+        <EntityType Name="TurDetay">
+          <Key>
+            <PropertyRef Name="turDetayId" />
+          </Key>
+          <Property Name="turDetayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="familyaId" Type="int" />
+          <Property Name="turDetay" Type="nvarchar" MaxLength="50" />
+          <Property Name="dikimYeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="toprak" Type="nvarchar" MaxLength="50" />
+          <Property Name="buyumeHizi" Type="nvarchar" MaxLength="50" />
+          <Property Name="resim" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <Association Name="FK_TurDetay_Familyalar">
+          <End Role="Familyalar" Type="Self.Familyalar" Multiplicity="0..1" />
+          <End Role="TurDetay" Type="Self.TurDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Familyalar">
+              <PropertyRef Name="familyaId" />
+            </Principal>
+            <Dependent Role="TurDetay">
+              <PropertyRef Name="familyaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BitkilerModelStoreContainer">
+          <EntitySet Name="Familyalar" EntityType="Self.Familyalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TurDetay" EntityType="Self.TurDetay" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TurDetay_Familyalar" Association="Self.FK_TurDetay_Familyalar">
+            <End Role="Familyalar" EntitySet="Familyalar" />
+            <End Role="TurDetay" EntitySet="TurDetay" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BitkilerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Familyalar">
+          <Key>
+            <PropertyRef Name="familyaId" />
+          </Key>
+          <Property Name="familyaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="familyaAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TurDetay" Relationship="Self.FK_TurDetay_Familyalar" FromRole="Familyalar" ToRole="TurDetay" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="kullaniciId" />
+          </Key>
+          <Property Name="kullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yetki" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TurDetay">
+          <Key>
+            <PropertyRef Name="turDetayId" />
+          </Key>
+          <Property Name="turDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="familyaId" Type="Int32" />
+          <Property Name="turDetay1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dikimYeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="toprak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="buyumeHizi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="resim" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Familyalar" Relationship="Self.FK_TurDetay_Familyalar" FromRole="TurDetay" ToRole="Familyalar" />
+        </EntityType>
+        <Association Name="FK_TurDetay_Familyalar">
+          <End Role="Familyalar" Type="Self.Familyalar" Multiplicity="0..1" />
+          <End Role="TurDetay" Type="Self.TurDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Familyalar">
+              <PropertyRef Name="familyaId" />
+            </Principal>
+            <Dependent Role="TurDetay">
+              <PropertyRef Name="familyaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BitkilerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Familyalar" EntityType="Self.Familyalar" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="TurDetay" EntityType="Self.TurDetay" />
+          <AssociationSet Name="FK_TurDetay_Familyalar" Association="Self.FK_TurDetay_Familyalar">
+            <End Role="Familyalar" EntitySet="Familyalar" />
+            <End Role="TurDetay" EntitySet="TurDetay" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BitkilerModelStoreContainer" CdmEntityContainer="BitkilerEntities">
+          <EntitySetMapping Name="Familyalar">
+            <EntityTypeMapping TypeName="BitkilerModel.Familyalar">
+              <MappingFragment StoreEntitySet="Familyalar">
+                <ScalarProperty Name="familyaId" ColumnName="familyaId" />
+                <ScalarProperty Name="familyaAdi" ColumnName="familyaAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="BitkilerModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="kullaniciId" ColumnName="kullaniciId" />
+                <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="yetki" ColumnName="yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TurDetay">
+            <EntityTypeMapping TypeName="BitkilerModel.TurDetay">
+              <MappingFragment StoreEntitySet="TurDetay">
+                <ScalarProperty Name="turDetayId" ColumnName="turDetayId" />
+                <ScalarProperty Name="familyaId" ColumnName="familyaId" />
+                <ScalarProperty Name="turDetay1" ColumnName="turDetay" />
+                <ScalarProperty Name="dikimYeri" ColumnName="dikimYeri" />
+                <ScalarProperty Name="toprak" ColumnName="toprak" />
+                <ScalarProperty Name="buyumeHizi" ColumnName="buyumeHizi" />
+                <ScalarProperty Name="resim" ColumnName="resim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

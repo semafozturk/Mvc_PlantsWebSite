@@ -1,0 +1,74 @@
+﻿@model WebProgOdev.Models.TurDetay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TurDetay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.turAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.turDetay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turDetay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dikimYeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dikimYeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.toprak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toprak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.buyumeHizi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.buyumeHizi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familyalar.familyaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familyalar.familyaAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.turDetayId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
